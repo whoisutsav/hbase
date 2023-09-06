@@ -37,7 +37,7 @@
     <license.bundles.vega>true</license.bundles.vega>
 
     <!-- Wasabi Fault Injection Library -->
-    <aspectj.version>1.9.8.RC1</aspectj.version>
+    <aspectj.version>1.9.8</aspectj.version>
     <aspectj-maven.version>1.13.1</aspectj-maven.version>
     <wasabi.version>1.0.0</wasabi.version>
   </properties>
@@ -419,10 +419,20 @@
               <enablePreview>false</enablePreview>
               <showWeaveInfo>true</showWeaveInfo>
               <verbose>true</verbose>
+              <additionalCompilerArgs>
+                <arg>-g</arg>
                       <!--<Xlint>unmatchedSuperTypeInCall=ignore,adviceDidNotMatch=ignore,typeNotExposedToWeaver=ignore,uncheckedAdviceConversion=ignore,invalidAbsoluteTypeName=ignore</Xlint>-->
+              </additionalCompilerArgs>
             </configuration>
           </execution>
         </executions>
+        <dependencies>
+          <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjtools</artifactId>
+            <version>${aspectj.version}</version>
+          </dependency>
+        </dependencies>
       </plugin>
       <plugin>
         <groupId>com.github.spotbugs</groupId>
